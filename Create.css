@@ -1,0 +1,12 @@
+body {
+  font-family: Arial;
+  background: #f5f5f5;
+}
+
+.portfolio {
+  max-width: 700px;
+  margin: auto;
+  background: rgb(255, 0, 0);
+  padding: 30px;
+  border-radius: 10px;
+}
