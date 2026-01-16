@@ -72,8 +72,9 @@ max-width: 72rem;        /* max-w-6xl */
   justify-content: space-between;
 }
 .logo-link {
-  color: rgb(244, 244, 245);
+  /* color: rgb(244, 244, 245);*/
   font-weight: 600;
+  height:80px;
   letter-spacing: -0.025em;
   font-size: 1.125rem;
   z-index: 50;
