@@ -21,7 +21,6 @@
 /* Font variables */
 :root {
   --font-sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-heading: "Martel Sans", Inter, system-ui, serif;
 }
 
 body {
@@ -31,20 +30,8 @@ body {
   color: var(--text-primary);
   font-family: var(--font-sans);
 }
-main {
-max-width: 72rem;        /* max-w-6xl */
-  z-index: 10;             /* z-10 */
 
-  margin-left: auto;       /* ml-auto */
-  margin-right: auto;      /* mr-auto */
-
-  padding-top: 8rem;       /* pt-32 (32 × 0.25rem = 8rem) */
-  padding-right: 1.5rem;   /* pr-6 */
-  padding-bottom: 5rem;    /* pb-20 */
-  padding-left: 1.5rem;    /* pl-6 */
-
-  position: relative;      /* relative */
-}
+/* Navigation */
 .glow-bg{
   position: fixed;
   top: 0;
@@ -119,7 +106,21 @@ ul {
 .MenuNav a:hover {
   color: rgb(244, 244, 245); /* zinc-100 */
 }
+/* Main Content */
+main {
+  max-width: 72rem;        /* max-w-6xl */
+  z-index: 10;             /* z-10 */
 
+  margin-left: auto;       /* ml-auto */
+  margin-right: auto;      /* mr-auto */
+
+  padding-top: 8rem;       /* pt-32 (32 × 0.25rem = 8rem) */
+  padding-right: 1.5rem;   /* pr-6 */
+  padding-bottom: 5rem;    /* pb-20 */
+  padding-left: 1.5rem;    /* pl-6 */
+
+  position: relative;      /* relative */
+}
 Section {
   display: grid;
   grid-template-columns: 1fr;
@@ -128,6 +129,15 @@ Section {
   margin-bottom: 6rem;
   opacity: 0;
   animation: fadeInUp 1s var(--transition) forwards;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 6rem;
+  min-height: calc(100vh - 64px);
+  padding: 0;
+  font-weight: 600;
 }
 @media (min-width: 1024px){
   .Section {
