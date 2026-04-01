@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="Home.css">
+    <link rel="stylesheet" href="Portfo.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Editor</title>
+</head>
+<body>
+    <nav class="header">
+        <div class="layout">
+            <a href="index.html" class="logo-link">
+                <img src="assets/logo.png" alt="" class="logo-link" >
+                <!--  Porfolio  -->
+            </a>
+            <!-- Menu Navigation  -->
+            <ul class="MenuNav">
+                <li><a href="index.html" class="MenuNav-index">Home</a></li>
+                <li><a href="Portfolio-Editor.html" class="MenuNav-link">Port Edit</a></li>
+                <li><a href="#Featured" class="MenuNav-link">Projects</a></li>
+                <li><a href="#" class="MenuNav-link">Competitions </a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="hero">
+    <div class="hero-text">
+      <p class="tag">Anime Editor / Game Highlight Editor</p>
+      <h1>Tạo nên những video anime và game cuốn hút bằng After Effects.</h1>
+      <p class="desc">
+        Mình là editor chuyên làm video anime, game highlight, gacha và slow motion.
+      Mình tập trung vào hiệu ứng mượt, nhịp cắt cuốn hút và đồng bộ cảm xúc theo nhạc
+      để tạo ra những video bắt mắt và ấn tượng.
+      </p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn primary">Xem dự án</a>
+        <a href="#contact" class="btn secondary">Liên hệ</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <img src="assets/20260116_0205_image.png" alt="Châu Thanh Sang"class="video-box">
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <h2>Về tôi</h2>
+    <p>
+      Mình là một video editor chuyên thực hiện các sản phẩm anime edit, game highlight,
+      gacha edit và slow motion bằng After Effects. Mình ưu tiên sự mượt mà trong chuyển động,
+      đồng bộ nhịp với âm nhạc và tạo điểm nhấn cảm xúc cho từng video. Hiện tại mình đang
+      tìm kiếm cơ hội làm việc và nhận các dự án edit theo yêu cầu của khách hàng.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>Dịch vụ</h2>
+    <div class="grid">
+      <div class="card">Anime Edit / AMV Edit</div>
+      <div class="card">Game Highlight Edit</div>
+      <div class="card">Gacha Edit</div>
+      <div class="card">Slow Motion / Beat Sync</div>
+      <div class="card">Transition & Effects</div>
+      <div class="card">Custom Edit Theo Yêu Cầu</div>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <h2>Dự án nổi bật</h2>
+    <div class="projects">
+      <div class="project-card">
+        <h3>Anime Edit / TikTok Sample</h3>
+        <div id="video-container" class="projects">
+        </div>
+        <script>
+          async function fetchTikToks() {
+              try {
+                  const response = await fetch('http://localhost:3000/api/tiktoks');
+                  const data = await response.json();
+                  const container = document.getElementById('video-container');
+                  
+                  if (!container || !data.videos) return;
+                  container.innerHTML = ''; 
+
+                  if (data.videos && data.videos.length > 0) {
+                      data.videos.forEach(item => {
+                          const card = document.createElement('div');
+                          card.className = "project-card";
+                          // Chèn trực tiếp mã HTML mà TikTok oEmbed cung cấp
+                          card.innerHTML = item.html;
+                          container.appendChild(card);
+                      });
+
+                      // Kích hoạt lại script TikTok để render video
+                      if (window.instgrm) window.instgrm.Embeds.process(); // Cho insta nếu có
+                      if (typeof twttr !== 'undefined') twttr.widgets.load(); // Cho twitter nếu có
+                      
+                      // Quan trọng nhất: Ép script TikTok load lại
+                      const script = document.createElement('script');
+                      script.src = "https://www.tiktok.com/embed.js";
+                      script.async = true;
+                      document.body.appendChild(script);
+
+                  } else {
+                      container.innerHTML = '<p>Không tìm thấy video nào.</p>';
+                  }
+              } catch (error) {
+                  console.error('Lỗi fetch:', error);
+              }
+          }
+          window.onload = fetchTikToks;
+      </script>
+        <a href="https://www.tiktok.com/@fairytail100yq_mvs/video/7618085099610836232" target="_blank">
+          Xem video
+        </a>
+      </div>
+
+      <!-- <div class="project-card">
+        <h3>Game Highlight Edit</h3>
+        <p>
+          Dựng các khoảnh khắc nổi bật trong game với chuyển cảnh mượt, flash, shake
+          và nhịp edit tạo cảm giác mạnh mẽ, cuốn hút.
+        </p> 
+      </div>-->
+
+      <!--<div class="project-card">
+        <h3>Gacha / Character Edit</h3>
+        <p>
+          Tạo video tập trung vào nhân vật với visual đẹp, slow motion, glow effect
+          và nhấn mạnh cảm xúc theo concept riêng.
+        </p>
+      </div>-->
+    </div>
+  </section>
+
+  <section id="skills" class="section">
+    <h2>Công cụ & kỹ năng</h2>
+    <div class="skills">
+      <span>Premiere Pro</span>
+      <span>After Effects</span>
+      <span>CapCut</span>
+      <span>DaVinci Resolve</span>
+      <span>Storytelling</span>
+      <span>Subtitle Design</span>
+      <span>Sound Sync</span>
+      <span>Color Correction</span>
+    </div>
+  </section>
+
+  <section id="contact" class="section contact">
+    <h2>Liên hệ nhận job</h2>
+    <p>
+      Mình hiện đang nhận các dự án edit anime, game highlight, gacha
+      và video short-form theo yêu cầu. Nếu bạn cần một editor có thể
+      tạo video bắt mắt, cảm xúc và đúng phong cách mong muốn, hãy liên hệ với mình.
+      </p>
+    <p>Email: yourmail@example.com</p>
+    <p>TikTok: @fairytail100yq_mvs</p>
+    <a href="mailto:yourmail@example.com" class="btn primary">Hire Me</a>
+  </section>
+</body>
+</html>

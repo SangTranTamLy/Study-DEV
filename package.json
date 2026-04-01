@@ -1,0 +1,29 @@
+{
+  "name": "study-dev",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\">Hi, I'm T.Sang Dev</h1>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SangTranTamLy/Study-DEV.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/SangTranTamLy/Study-DEV/issues"
+  },
+  "homepage": "https://github.com/SangTranTamLy/Study-DEV#readme",
+  "dependencies": {
+    "axios": "^1.14.0",
+    "cors": "^2.8.6",
+    "discord.js": "^14.26.0",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1"
+  }
+}
